@@ -37,5 +37,5 @@ RUN cp /usr/local/etc/php/php.ini-production /usr/local/etc/php/php.ini \
 
 RUN rm -rf /tmp/* /var/tmp/*
 
-CMD ["php /app/artisan horizon"]
+CMD ["php", "/app/artisan", "horizon"]
 
