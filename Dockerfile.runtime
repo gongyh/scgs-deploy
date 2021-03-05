@@ -20,7 +20,7 @@ RUN docker-php-ext-configure gd --with-png-dir \
     && docker-php-ext-install -j$(nproc) gd
 
 # install more php extensions
-RUN docker-php-ext-install -j$(nproc) zip bcmath mysqli pdo_mysql
+RUN docker-php-ext-install -j$(nproc) zip bcmath mysqli pdo_mysql pcntl
 
 # install php redis extension
 RUN pecl install redis && docker-php-ext-enable redis && rm -rf /tmp/pear
