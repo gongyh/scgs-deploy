@@ -2,7 +2,7 @@ FROM quay.io/gongyh/php7.3.8
 #FROM php:7.3.8
 
 RUN apt-get update -y \
-    && apt-get install -y --no-install-recommends unzip locales \
+    && apt-get install -y --no-install-recommends unzip locales procps \
        libwebp-dev libjpeg-dev libxpm-dev libfreetype6-dev libzip-dev \
        iputils-ping libcurl4-openssl-dev pkg-config libssl-dev \
     && apt-get autoremove -y && apt-get clean \
