@@ -1,8 +1,8 @@
 FROM quay.io/gongyh/php7.3.8
 #FROM php:7.3.8
 
-RUN apt-get update -y \
-    && apt-get install -y --no-install-recommends unzip locales procps \
+RUN apt-get update -y && apt-get install -y --no-install-recommends \
+       unzip locales procps graphviz git openjdk-11-jdk \
        libwebp-dev libjpeg-dev libxpm-dev libfreetype6-dev libzip-dev \
        iputils-ping libcurl4-openssl-dev pkg-config libssl-dev \
     && apt-get autoremove -y && apt-get clean \
@@ -36,6 +36,12 @@ COPY opcache.ini /usr/local/etc/php/conf.d/opcache.ini
 RUN cp /usr/local/etc/php/php.ini-production /usr/local/etc/php/php.ini \
     && sed -i 's/post_max_size.*$/post_max_size = 2000M/g' /usr/local/etc/php/php.ini \
     && sed -i 's/upload_max_filesize.*$/upload_max_filesize = 2000M/g' /usr/local/etc/php/php.ini
+
+# install nextflow
+RUN mkdir /opt/nextflow && cd /opt/nextflow && wget -qO- get.nextflow.io | bash && ln -s /opt/nextflow/nextflow /usr/local/bin/nextflow
+
+# copy code
+RUN cd /opt && git clone https://github.com/gongyh/nf-core-scgs.git
 
 RUN rm -rf /tmp/* /var/tmp/*
 
