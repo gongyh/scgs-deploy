@@ -1,8 +1,9 @@
 FROM quay.io/gongyh/php7.3.8
 #FROM php:7.3.8
 
-RUN apt-get update -y && apt-get install -y --no-install-recommends \
-       unzip locales procps graphviz git openjdk-11-jdk \
+RUN apt-get update -y && mkdir -p /usr/share/man/man1 \
+    && apt-get install -y --no-install-recommends \
+       ca-certificates unzip locales procps graphviz git default-jre \
        libwebp-dev libjpeg-dev libxpm-dev libfreetype6-dev libzip-dev \
        iputils-ping libcurl4-openssl-dev pkg-config libssl-dev \
     && apt-get autoremove -y && apt-get clean \
