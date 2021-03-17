@@ -3,7 +3,7 @@ FROM quay.io/gongyh/php7.3.8
 
 RUN apt-get update -y && mkdir -p /usr/share/man/man1 \
     && apt-get install -y --no-install-recommends \
-       ca-certificates unzip locales procps graphviz git default-jre \
+       wget ca-certificates unzip locales procps graphviz git default-jre \
        libwebp-dev libjpeg-dev libxpm-dev libfreetype6-dev libzip-dev \
        iputils-ping libcurl4-openssl-dev pkg-config libssl-dev \
     && apt-get autoremove -y && apt-get clean \
