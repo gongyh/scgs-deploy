@@ -42,7 +42,7 @@ RUN cp /usr/local/etc/php/php.ini-production /usr/local/etc/php/php.ini \
 RUN mkdir /opt/nextflow && cd /opt/nextflow && wget -qO- get.nextflow.io | bash && ln -s /opt/nextflow/nextflow /usr/local/bin/nextflow
 
 # copy code
-RUN cd /opt && git clone --single-branch --branch v1.1 https://github.com/gongyh/nf-core-scgs.git
+RUN cd /opt && git clone --single-branch --branch v1.1.2 https://github.com/gongyh/nf-core-scgs.git
 
 RUN rm -rf /tmp/* /var/tmp/*
 
